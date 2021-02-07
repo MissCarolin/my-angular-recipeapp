@@ -13,7 +13,7 @@ export class RecipesComponent implements OnInit {
 
   constructor(private recipeService: RecipeService) { }
 
-  ngOnInit() {
+  ngOnInit() { //set up event Listener
     this.recipeService.recipeSelected
       .subscribe( //get informed about changes
         (recipe: Recipe) => {
