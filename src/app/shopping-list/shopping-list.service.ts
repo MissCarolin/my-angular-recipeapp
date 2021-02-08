@@ -14,11 +14,18 @@ private ingredients: Ingredient[] = [
   constructor() { }
 
   getIngredients() {
-    return this.ingredients;
+    return this.ingredients; //.slice()
   }
 
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     // this.ingredientsChanged.emit(this.ingredients.slice());
+  }
+
+  addIngredients(ingredients: Ingredient[]) {
+    // for (let ingredient of ingredients) {
+    //   this.addIngredient(ingredient);
+    // }
+    this.ingredients.push(...ingredients) //spread ingredients array to single items list and push that list of ingredients to ingredients array
   }
 }
