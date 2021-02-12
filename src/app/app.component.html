@@ -2,8 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <app-recipes *ngIf="loadedFeature === 'recipe'" (featureSelected)="onSelect($event)"></app-recipes>
-            <app-shopping-list *ngIf="loadedFeature !== 'recipe'" (featureSelected)="onSelect($event) "></app-shopping-list>
+            <router-outlet></router-outlet>
             <hr>
         </div>
     </div>
