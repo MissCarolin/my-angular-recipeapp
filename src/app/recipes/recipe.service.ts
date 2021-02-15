@@ -20,6 +20,18 @@ export class RecipeService {
     return this.recipes.slice(); //get a copy from recipes array since it's of reference type
   }
 
+  getRecipe(index: number) {
+    return this.recipes[index]
+
+    //if using an object:
+      // const recipe = this.recipes.find(
+      //   (r) => {
+      //     return r.id === id;
+      //   }
+      // );
+      // return recipe;
+    }
+
   // addIngredientsToShoppingList(ingredients: Ingredient[]) {
   //   this.slService.addIngredients(ingredients);
   // }

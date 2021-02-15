@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Recipe } from '../../recipe.model';
-import { RecipeService } from '../../recipe.service';
 
 @Component({
   selector: 'app-recipe-item',
@@ -9,14 +8,13 @@ import { RecipeService } from '../../recipe.service';
 })
 export class RecipeItemComponent implements OnInit {
    @Input() recipe: Recipe;
-
-  constructor(private recipeService: RecipeService) { }
+   @Input() index: number;
 
   ngOnInit(): void {
   }
 
-  onSelected() {
-    this.recipeService.recipeSelected.emit(this.recipe); //data we want to pass to recipe Service
-  }
+  // onSelected() {
+  //   this.recipeService.recipeSelected.emit(this.recipe); //data we want to pass to recipe Service, don't need it anymore because passing data by routes (id)
+  // }
 
 }
