@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingListService } from 'src/app/shopping-list/shopping-list.service';
 import { Recipe } from '../recipe.model';
@@ -12,8 +12,9 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
  recipe: Recipe;
+ id: number;
 
- constructor(private sLService: ShoppingListService, private recipeService: RecipeService, private route: ActivatedRoute) { }
+ constructor(private sLService: ShoppingListService, private recipeService: RecipeService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     //  const id = +this.route.snapshot.params['id'];
@@ -28,6 +29,12 @@ export class RecipeDetailComponent implements OnInit {
 
   onAddToShoppingList() {
     this.sLService.addIngredients(this.recipe.ingredients) //ingredients are passed to recipe service
+  }
+
+  onEditRecipe() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
+    //ODER absoluten Pfad angeben
+    // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route})
   }
 
 }
